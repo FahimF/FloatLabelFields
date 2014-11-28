@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD72F5C61A2844A40097D54A /* FloatLabelFields.h in Headers */ = {isa = PBXBuildFile; fileRef = DD72F5C51A2844A40097D54A /* FloatLabelFields.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD72F5DD1A2844F10097D54A /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72F5DC1A2844F10097D54A /* FloatLabelTextField.swift */; };
+		DD72F6211A2855730097D54A /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72F6201A2855730097D54A /* FloatLabelTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,7 @@
 		DD72F5C41A2844A40097D54A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD72F5C51A2844A40097D54A /* FloatLabelFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloatLabelFields.h; sourceTree = "<group>"; };
 		DD72F5DC1A2844F10097D54A /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		DD72F6201A2855730097D54A /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 				DD72F5C31A2844A40097D54A /* Supporting Files */,
 				DD72F5C51A2844A40097D54A /* FloatLabelFields.h */,
 				DD72F5DC1A2844F10097D54A /* FloatLabelTextField.swift */,
+				DD72F6201A2855730097D54A /* FloatLabelTextView.swift */,
 			);
 			path = FloatLabelFields;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD72F5DD1A2844F10097D54A /* FloatLabelTextField.swift in Sources */,
+				DD72F6211A2855730097D54A /* FloatLabelTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

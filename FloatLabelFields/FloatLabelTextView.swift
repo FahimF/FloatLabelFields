@@ -1,22 +1,19 @@
 //
-//  FloatLabelTextField.swift
+//  FloatLabelTextView.swift
 //  FloatLabelFields
 //
 //  Created by Fahim Farook on 28/11/14.
 //  Copyright (c) 2014 RookSoft Ltd. All rights reserved.
 //
-//  Original Concept by Matt D. Smith
-//  http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users
-//
-//  Objective-C version by Jared Verdi
-//  https://github.com/jverdi/JVFloatLabeledTextField
-//
 
 import UIKit
 
-@IBDesignable class FloatLabelTextField: UITextField {
+@IBDesignable class FloatLabelTextView: UITextView {
 	let animationDuration = 0.3
-	var titleLabel = UILabel()
+	let placeholderTextColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.65)
+	private var titleLabel = UILabel()
+	private var placeholderLabel = UILabel()
+	private var initialTopInset:CGFloat = 0
 	
 	// MARK:- Properties
 	override var accessibilityLabel:String! {
@@ -32,22 +29,20 @@ import UIKit
 		}
 	}
 	
-	override var placeholder:String? {
+	@IBInspectable var placeholder:String = "" {
 		didSet {
 			titleLabel.text = placeholder
 			titleLabel.sizeToFit()
-		}
-	}
-	
-	override var attributedPlaceholder:NSAttributedString? {
-		didSet {
-			titleLabel.text = attributedPlaceholder?.string
-			titleLabel.sizeToFit()
+			var r = titleLabel.frame
+			r.size.width = frame.size.width
+			titleLabel.frame = r
+			placeholderLabel.text = placeholder
+			placeholderLabel.sizeToFit()
 		}
 	}
 	
 	@IBInspectable var placeholderYPadding:CGFloat = 0.0
-
+	
 	@IBInspectable var titleLabelYPadding:CGFloat = 0.0 {
 		didSet {
 			var r = titleLabel.frame
@@ -93,10 +88,21 @@ import UIKit
 		super.init()
 		setup()
 	}
+
+	deinit {
+		let nc = NSNotificationCenter.defaultCenter()
+		nc.removeObserver(self, name:UITextViewTextDidChangeNotification, object:self)
+		nc.removeObserver(self, name:UITextViewTextDidBeginEditingNotification, object:self)
+		nc.removeObserver(self, name:UITextViewTextDidEndEditingNotification, object:self)
+	}
 	
 	// MARK:- Overrides
 	override func layoutSubviews() {
 		super.layoutSubviews()
+		adjustTopTextInset()
+		placeholderLabel.alpha = text.isEmpty ? 1.0 : 0.0
+		let r = textRect()
+		placeholderLabel.frame = CGRect(x:r.origin.x, y:r.origin.y, width:placeholderLabel.frame.size.width, height:placeholderLabel.frame.size.height)
 		setTitlePositionForTextAlignment()
 		let isResp = isFirstResponder()
 		if isResp && !text.isEmpty {
@@ -114,68 +120,60 @@ import UIKit
 		}
 	}
 	
-	override func textRectForBounds(bounds:CGRect) -> CGRect {
-		var r = super.textRectForBounds(bounds)
-		if !text.isEmpty {
-			var top = ceil(titleLabel.font.lineHeight + placeholderYPadding)
-			top = min(top, maxTopInset())
-			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
-		}
-		return CGRectIntegral(r)
-	}
-	
-	override func editingRectForBounds(bounds:CGRect) -> CGRect {
-		var r = super.editingRectForBounds(bounds)
-		if !text.isEmpty {
-			var top = ceil(titleLabel.font.lineHeight + placeholderYPadding)
-			top = min(top, maxTopInset())
-			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
-		}
-		return CGRectIntegral(r)
-	}
-	
-	override func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
-		var r = super.clearButtonRectForBounds(bounds)
-		if !text.isEmpty {
-			var top = ceil(titleLabel.font.lineHeight + placeholderYPadding)
-			top = min(top, maxTopInset())
-			r = CGRect(x:r.origin.x, y:r.origin.y + (top * 0.5), width:r.size.width, height:r.size.height)
-		}
-		return CGRectIntegral(r)
-	}
-	
-	// MARK:- Public Methods
-	
 	// MARK:- Private Methods
 	private func setup() {
 		println("Setup called")
-		borderStyle = UITextBorderStyle.None
+		initialTopInset = textContainerInset.top
+		textContainer.lineFragmentPadding = 0.0
 		titleLabelActiveTextColour = tintColor
+		// Placeholder label
+		placeholderLabel.font = font
+		placeholderLabel.text = placeholder
+		placeholderLabel.numberOfLines = 0
+		placeholderLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+		placeholderLabel.backgroundColor = UIColor.clearColor()
+		placeholderLabel.textColor = placeholderTextColor
+		insertSubview(placeholderLabel, atIndex:0)
 		// Set up title label
 		titleLabel.alpha = 0.0
 		titleLabel.font = titleLabelFont
 		titleLabel.textColor = titleLabelTextColour
+		titleLabel.backgroundColor = backgroundColor
 		println("The placeholder is: \(placeholder)")
-		if let str = placeholder {
-			if !str.isEmpty {
-				titleLabel.text = str
-				titleLabel.sizeToFit()
-			}
+		if !placeholder.isEmpty {
+			titleLabel.text = placeholder
+			titleLabel.sizeToFit()
 		}
 		self.addSubview(titleLabel)
+		// Observers
+		let nc = NSNotificationCenter.defaultCenter()
+		nc.addObserver(self, selector:"layoutSubviews", name:UITextViewTextDidChangeNotification, object:self)
+		nc.addObserver(self, selector:"layoutSubviews", name:UITextViewTextDidBeginEditingNotification, object:self)
+		nc.addObserver(self, selector:"layoutSubviews", name:UITextViewTextDidEndEditingNotification, object:self)
 	}
 
-	private func maxTopInset()->CGFloat {
-		return max(0, floor(bounds.size.height - font.lineHeight - 4.0))
+	private func adjustTopTextInset() {
+		var inset = textContainerInset
+		inset.top = initialTopInset + titleLabel.font.lineHeight + placeholderYPadding
+		textContainerInset = inset
+	}
+	
+	private func textRect()->CGRect {
+		var r = UIEdgeInsetsInsetRect(bounds, contentInset)
+		r.origin.x += textContainer.lineFragmentPadding
+		r.origin.y += textContainerInset.top
+		return CGRectIntegral(r)
 	}
 	
 	private func setTitlePositionForTextAlignment() {
-		var r = textRectForBounds(bounds)
-		var x = r.origin.x
+		var titleLabelX = textRect().origin.x
+		var placeholderX = titleLabelX
 		if textAlignment == NSTextAlignment.Center {
-			x = r.origin.x + (r.size.width * 0.5) - titleLabel.frame.size.width
+			titleLabelX = (frame.size.width - titleLabel.frame.size.width) * 0.5
+			placeholderX = (frame.size.width - placeholderLabel.frame.size.width) * 0.5
 		} else if textAlignment == NSTextAlignment.Right {
-			x = r.origin.x + r.size.width - titleLabel.frame.size.width
+			titleLabelX = frame.size.width - titleLabel.frame.size.width
+			placeholderX = frame.size.width - placeholderLabel.frame.size.width
 		} else if textAlignment == NSTextAlignment.Natural {
 			println("It's natural. We need this.")
 			// TODO: Implement later
@@ -184,17 +182,22 @@ import UIKit
 //				originX = r.origin.x + r.size.width - _floatingLabel.frame.size.width;
 //			}
 		}
-		titleLabel.frame = CGRect(x:x, y:titleLabel.frame.origin.y, width:titleLabel.frame.size.width, height:titleLabel.frame.size.height)
+		var r = titleLabel.frame
+		r.origin.x = titleLabelX
+		titleLabel.frame = r
+		r = placeholderLabel.frame
+		r.origin.x = placeholderX
+		placeholderLabel.frame = r
 	}
 	
 	private func showTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
 		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseOut, animations:{
-				// Animation
-				self.titleLabel.alpha = 1.0
-				var r = self.titleLabel.frame
-				r.origin.y = self.titleLabelYPadding
-				self.titleLabel.frame = r
+			// Animation
+			self.titleLabel.alpha = 1.0
+			var r = self.titleLabel.frame
+			r.origin.y = self.titleLabelYPadding + self.contentOffset.y
+			self.titleLabel.frame = r
 			}, completion:nil)
 	}
 	

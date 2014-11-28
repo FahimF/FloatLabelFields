@@ -46,6 +46,12 @@ import UIKit
 		}
 	}
 	
+	var titleLabelFont:UIFont = UIFont.systemFontOfSize(12.0) {
+		didSet {
+			titleLabel.font = titleLabelFont
+		}
+	}
+	
 	@IBInspectable var placeholderYPadding:CGFloat = 0.0
 
 	@IBInspectable var titleLabelYPadding:CGFloat = 0.0 {
@@ -53,12 +59,6 @@ import UIKit
 			var r = titleLabel.frame
 			r.origin.y = titleLabelYPadding
 			titleLabel.frame = r
-		}
-	}
-	
-	@IBInspectable var titleLabelFont:UIFont = UIFont.systemFontOfSize(12.0) {
-		didSet {
-			titleLabel.font = titleLabelFont
 		}
 	}
 	
@@ -89,10 +89,10 @@ import UIKit
 		setup()
 	}
 	
-	override init() {
-		super.init()
-		setup()
-	}
+//	override init() {
+//		super.init()
+//		setup()
+//	}
 	
 	// MARK:- Overrides
 	override func layoutSubviews() {
@@ -176,13 +176,6 @@ import UIKit
 			x = r.origin.x + (r.size.width * 0.5) - titleLabel.frame.size.width
 		} else if textAlignment == NSTextAlignment.Right {
 			x = r.origin.x + r.size.width - titleLabel.frame.size.width
-		} else if textAlignment == NSTextAlignment.Natural {
-			println("It's natural. We need this.")
-			// TODO: Implement later
-//			JVTextDirection baseDirection = [_floatingLabel.text getBaseDirection];
-//			if (baseDirection == JVTextDirectionRightToLeft) {
-//				originX = r.origin.x + r.size.width - _floatingLabel.frame.size.width;
-//			}
 		}
 		titleLabel.frame = CGRect(x:x, y:titleLabel.frame.origin.y, width:titleLabel.frame.size.width, height:titleLabel.frame.size.height)
 	}

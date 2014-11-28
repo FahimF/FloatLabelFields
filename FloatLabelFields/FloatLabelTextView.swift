@@ -29,6 +29,12 @@ import UIKit
 		}
 	}
 	
+	var titleLabelFont:UIFont = UIFont.systemFontOfSize(12.0) {
+		didSet {
+			titleLabel.font = titleLabelFont
+		}
+	}
+	
 	@IBInspectable var placeholder:String = "" {
 		didSet {
 			titleLabel.text = placeholder
@@ -48,12 +54,6 @@ import UIKit
 			var r = titleLabel.frame
 			r.origin.y = titleLabelYPadding
 			titleLabel.frame = r
-		}
-	}
-	
-	@IBInspectable var titleLabelFont:UIFont = UIFont.systemFontOfSize(12.0) {
-		didSet {
-			titleLabel.font = titleLabelFont
 		}
 	}
 	
@@ -84,10 +84,10 @@ import UIKit
 		setup()
 	}
 	
-	override init() {
-		super.init()
-		setup()
-	}
+//	override init() {
+//		super.init()
+//		setup()
+//	}
 
 	deinit {
 		let nc = NSNotificationCenter.defaultCenter()
@@ -139,7 +139,7 @@ import UIKit
 		titleLabel.font = titleLabelFont
 		titleLabel.textColor = titleLabelTextColour
 		titleLabel.backgroundColor = backgroundColor
-		println("The placeholder is: \(placeholder)")
+		println("The textview placeholder is: \(placeholder)")
 		if !placeholder.isEmpty {
 			titleLabel.text = placeholder
 			titleLabel.sizeToFit()
@@ -174,13 +174,6 @@ import UIKit
 		} else if textAlignment == NSTextAlignment.Right {
 			titleLabelX = frame.size.width - titleLabel.frame.size.width
 			placeholderX = frame.size.width - placeholderLabel.frame.size.width
-		} else if textAlignment == NSTextAlignment.Natural {
-			println("It's natural. We need this.")
-			// TODO: Implement later
-//			JVTextDirection baseDirection = [_floatingLabel.text getBaseDirection];
-//			if (baseDirection == JVTextDirectionRightToLeft) {
-//				originX = r.origin.x + r.size.width - _floatingLabel.frame.size.width;
-//			}
 		}
 		var r = titleLabel.frame
 		r.origin.x = titleLabelX

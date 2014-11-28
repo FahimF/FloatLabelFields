@@ -12,18 +12,9 @@
 		DD72F5F21A2845270097D54A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F01A2845270097D54A /* Main.storyboard */; };
 		DD72F5F41A2845270097D54A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F31A2845270097D54A /* Images.xcassets */; };
 		DD72F5F71A2845270097D54A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F51A2845270097D54A /* LaunchScreen.xib */; };
-		DD72F61C1A2846A80097D54A /* FloatLabelFields.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD72F61B1A28468A0097D54A /* FloatLabelFields.framework */; };
+		DDC84CB71A28902000040F0F /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */; };
+		DDC84CB81A28902000040F0F /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DD72F61A1A28468A0097D54A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DD72F6161A28468A0097D54A /* FloatLabelFields.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DD72F5C01A2844A40097D54A;
-			remoteInfo = FloatLabelFields;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DD72F5E71A2845270097D54A /* FloatLabelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatLabelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +24,8 @@
 		DD72F5F11A2845270097D54A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD72F5F31A2845270097D54A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD72F5F61A2845270097D54A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DD72F6161A28468A0097D54A /* FloatLabelFields.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FloatLabelFields.xcodeproj; path = ../FloatLabelFields.xcodeproj; sourceTree = "<group>"; };
+		DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatLabelTextField.swift; path = ../FloatLabelFields/FloatLabelTextField.swift; sourceTree = "<group>"; };
+		DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatLabelTextView.swift; path = ../FloatLabelFields/FloatLabelTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD72F61C1A2846A80097D54A /* FloatLabelFields.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +43,8 @@
 			isa = PBXGroup;
 			children = (
 				DD72F5E91A2845270097D54A /* FloatLabelExample */,
+				DDC84CB41A28900000040F0F /* FloatLabelFields */,
 				DD72F5E81A2845270097D54A /* Products */,
-				DD72F6161A28468A0097D54A /* FloatLabelFields.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,12 +77,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DD72F6171A28468A0097D54A /* Products */ = {
+		DDC84CB41A28900000040F0F /* FloatLabelFields */ = {
 			isa = PBXGroup;
 			children = (
-				DD72F61B1A28468A0097D54A /* FloatLabelFields.framework */,
+				DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */,
+				DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */,
 			);
-			name = Products;
+			name = FloatLabelFields;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,28 +131,12 @@
 			mainGroup = DD72F5DE1A2845270097D54A;
 			productRefGroup = DD72F5E81A2845270097D54A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = DD72F6171A28468A0097D54A /* Products */;
-					ProjectRef = DD72F6161A28468A0097D54A /* FloatLabelFields.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				DD72F5E61A2845270097D54A /* FloatLabelExample */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		DD72F61B1A28468A0097D54A /* FloatLabelFields.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FloatLabelFields.framework;
-			remoteRef = DD72F61A1A28468A0097D54A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DD72F5E51A2845270097D54A /* Resources */ = {
@@ -180,6 +156,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC84CB71A28902000040F0F /* FloatLabelTextField.swift in Sources */,
+				DDC84CB81A28902000040F0F /* FloatLabelTextView.swift in Sources */,
 				DD72F5EF1A2845270097D54A /* ViewController.swift in Sources */,
 				DD72F5ED1A2845270097D54A /* AppDelegate.swift in Sources */,
 			);

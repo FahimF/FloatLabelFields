@@ -14,8 +14,7 @@ Credits for the concept to Matt D. Smith ([@mds](http://www.twitter.com/mds)), a
 
 ![Matt D. Smith's Design](http://dribbble.s3.amazonaws.com/users/6410/screenshots/1254439/form-animation-_gif_.gif)
 
-
-`FloatLabelFields` currently includes just the `UITextField` implementation, though I plan to add supprt for `UITextView` in the near future. Since the code is Swift-based, do note that the component will only work on iOS 7.x+.
+Since the code is Swift-based, do note that this version of the component swill only work on iOS 7.x+.
 
 Additional References
 =====================

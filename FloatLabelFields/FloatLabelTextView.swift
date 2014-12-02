@@ -20,7 +20,7 @@ import UIKit
 	override var accessibilityLabel:String! {
 		get {
 			if text.isEmpty {
-				return title.text
+				return title.text!
 			} else {
 				return text
 			}
@@ -69,7 +69,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleActiveTextColour:UIColor! {
+	@IBInspectable var titleActiveTextColour:UIColor = UIColor.cyanColor() {
 		didSet {
 			if isFirstResponder() {
 				title.textColor = titleActiveTextColour

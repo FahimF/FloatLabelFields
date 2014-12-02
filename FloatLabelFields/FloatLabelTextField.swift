@@ -143,14 +143,12 @@ import UIKit
 	
 	// MARK:- Private Methods
 	private func setup() {
-		println("Setup called")
 		borderStyle = UITextBorderStyle.None
 		titleActiveTextColour = tintColor
 		// Set up title label
 		title.alpha = 0.0
 		title.font = titleFont
 		title.textColor = titleTextColour
-		println("The placeholder is: \(placeholder)")
 		if let str = placeholder {
 			if !str.isEmpty {
 				title.text = str

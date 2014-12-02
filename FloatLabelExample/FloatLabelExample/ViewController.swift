@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UITableViewController {
+	@IBOutlet var vwHolder:UIView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		// Set up a FloatLabelTextField via code
+		let fld = FloatLabelTextField(frame:vwHolder.bounds)
+		fld.placeholder = "Comments"
+		vwHolder.addSubview(fld)
 	}
 
 	override func didReceiveMemoryWarning() {

@@ -1,6 +1,6 @@
 FloatLabelFields
 ================
-[![Platform](http://img.shields.io/badge/platform-ios-blue.svg)](http://cocoadocs.org/docsets/JVFloatLabeledTextField/)
+[![Platform](http://img.shields.io/badge/platform-ios-blue.svg)](https://developer.apple.com/iphone/index.action)
 [![License](http://img.shields.io/badge/license-MIT-orange.svg)](http://mit-license.org)
 [![Issues](http://img.shields.io/github/issues/FahimF/FloatLabelFields.svg)](https://github.com/FahimF/FloatLabelFields/issues?state=open)
 

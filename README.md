@@ -6,8 +6,8 @@ FloatLabelFields
 
 - [Overview](#overview)
 - [Installation](#installation)
-	- [1. Via Interface Builder](#IB)
-	- [2. Via Code](#code)
+	- [Via Interface Builder](#via-interface-builder)
+	- [Via Code](#via-code)
 - [Credits](#credits)
 - [Additional References](#references)
 - [Questions](#questions)
@@ -31,7 +31,7 @@ Since the code is Swift-based, do note that this version of the component swill 
 
 You can install the `FloatLabelField` components two ways:
 
-### 1. Via Interface Builder ###
+### Via Interface Builder ###
 
 Just add a `UITextField` or `UITextView` to your storyboard and then set the custom class for the control to either `FloatLabelTextField` or `FloatLabelTextView`.
 
@@ -49,11 +49,11 @@ If everything is set up correctly, you'll see the title display on Interface Bui
 
 ![Final Result](https://cloud.githubusercontent.com/assets/181110/5260535/f651ffb2-7a4a-11e4-8703-6df7959e0bc4.png)
 
-### 2. Via Code ###
+### Via Code ###
 
 Using `FloatLabelFields` via code works the same as you would do to set up a `UITextField` or `UITextView` instance. Simply create an instance of the class, set the necessary properties, and then add the field to your view.
 
-```
+```swift
 let fld = FloatLabelTextField(frame:vwHolder.bounds)
 fld.placeholder = "Comments"
 vwHolder.addSubview(fld)

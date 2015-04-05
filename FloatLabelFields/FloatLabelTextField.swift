@@ -49,6 +49,7 @@ import UIKit
 	var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
 		didSet {
 			title.font = titleFont
+			title.sizeToFit()
 		}
 	}
 	

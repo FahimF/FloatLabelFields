@@ -83,8 +83,8 @@ import UIKit
 		setup()
 	}
 	
-	override init(frame:CGRect) {
-		super.init(frame:frame)
+	override init(frame:CGRect, textContainer:NSTextContainer?) {
+		super.init(frame:frame, textContainer:textContainer)
 		setup()
 	}
 	

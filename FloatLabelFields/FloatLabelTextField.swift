@@ -15,10 +15,24 @@
 import UIKit
 
 @IBDesignable class FloatLabelTextField: UITextField {
-	let animationDuration = 0.3
-	var title = UILabel()
+
+    // MARK:- Properties
+
+    let animationDuration = 0.3
+    var title = UILabel()
+
+    /**
+        Quando qualquer parâmetro é alterado, caso este atributo esteja marcado como TRUE, esta alteração será replicada para as demais linhas (Left,Right,Top,Bottom)
+        @param Boolean. TRUE = replicate changes to all lines
+    */
+    @IBInspectable var allLinesAreEquals:Bool = true { didSet { setNeedsDisplay() } }
+    @IBInspectable var drawBottomLine:Bool = false  { didSet { setNeedsDisplay() } }
+    @IBInspectable var drawLeftLine:Bool = false  { didSet { setNeedsDisplay() } }
+    @IBInspectable var drawRightLine:Bool = false  { didSet { setNeedsDisplay() } }
+    @IBInspectable var drawTopLine:Bool = false  { didSet { setNeedsDisplay() } }
+    @IBInspectable var lineThikness:CGFloat = 1.0  { didSet { setNeedsDisplay() } }
+    @IBInspectable var lineColor:UIColor = UIColor.grayColor()  { didSet { setNeedsDisplay() } }
 	
-	// MARK:- Properties
 	override var accessibilityLabel:String! {
 		get {
 			if text.isEmpty {
@@ -31,8 +45,8 @@ import UIKit
 			self.accessibilityLabel = newValue
 		}
 	}
-	
-	override var placeholder:String? {
+    
+ 	override var placeholder:String? {
 		didSet {
 			title.text = placeholder
 			title.sizeToFit()
@@ -46,7 +60,7 @@ import UIKit
 		}
 	}
 	
-	var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
+	@IBInspectable var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
 		didSet {
 			title.font = titleFont
 			title.sizeToFit()
@@ -91,7 +105,20 @@ import UIKit
 	}
 	
 	// MARK:- Overrides
-	override func layoutSubviews() {
+    /**
+        By: Julio Fabio Chagas
+        This override was made to draw lines around all 4 corners.
+        I used drawRect instead of CGContext pattern to be able to se draws in Interface Builder
+    */
+    override func drawRect(rect: CGRect) {
+        
+        if(self.drawBottomLine || drawTopLine || drawLeftLine || drawRightLine) {
+            drawLines()
+        }
+        
+    }
+
+    override func layoutSubviews() {
 		super.layoutSubviews()
 		setTitlePositionForTextAlignment()
 		let isResp = isFirstResponder()
@@ -115,7 +142,7 @@ import UIKit
 		if !text.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
-			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
+			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 3.0, 0.0, 3.0))
 		}
 		return CGRectIntegral(r)
 	}
@@ -125,7 +152,7 @@ import UIKit
 		if !text.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
-			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
+			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 3.0, 0.0, 3.0))
 		}
 		return CGRectIntegral(r)
 	}
@@ -139,9 +166,7 @@ import UIKit
 		}
 		return CGRectIntegral(r)
 	}
-	
-	// MARK:- Public Methods
-	
+		
 	// MARK:- Private Methods
 	private func setup() {
 		borderStyle = UITextBorderStyle.None
@@ -154,11 +179,54 @@ import UIKit
 			if !str.isEmpty {
 				title.text = str
 				title.sizeToFit()
+
 			}
 		}
+        
 		self.addSubview(title)
+        println("drawBottomLine \(self.drawBottomLine)")
 	}
+    
+    /**
+        This method checks when specific lines has to be draw based on parameters: drawBottomLine, drawLeftLine, drawTopLine, drawRightLine
+    */
+    private func drawLines() {
+        let graphicsW = self.bounds.size.width
+        let graphicsH = self.bounds.size.height
+        let opaque = false
+        let scale:CGFloat = 0
+        var lineToDraw = UIBezierPath()
 
+        if(drawBottomLine) {
+            lineToDraw = UIBezierPath(rect: CGRect(x: 0.0, y: graphicsH, width: graphicsW, height: 1))
+            drawSpecificLine(lineToDraw)
+        }
+        if(drawLeftLine) {
+            lineToDraw = UIBezierPath(rect: CGRect(x: 0.0, y: 0.0 , width: 1, height: graphicsH))
+            drawSpecificLine(lineToDraw)
+        }
+
+        if(drawRightLine) {
+            lineToDraw = UIBezierPath(rect: CGRect(x: graphicsW, y: 0.0 , width: 1, height: graphicsH))
+            drawSpecificLine(lineToDraw)
+        }
+
+        if(drawTopLine) {
+            lineToDraw = UIBezierPath(rect: CGRect(x: 0.0, y: 0.0 , width: graphicsW, height: 1))
+            drawSpecificLine(lineToDraw)
+        }
+        
+    }
+    
+    /**
+        This is the method responsible to draw the line seeting all design attributes
+    */
+    private func drawSpecificLine(line: UIBezierPath) {
+        line.lineWidth = lineThikness
+        lineColor.set()
+        line.stroke()
+    }
+    
 	private func maxTopInset()->CGFloat {
 		return max(0, floor(bounds.size.height - font.lineHeight - 4.0))
 	}

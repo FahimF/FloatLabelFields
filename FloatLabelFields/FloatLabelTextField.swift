@@ -20,6 +20,7 @@ import UIKit
 
     let animationDuration = 0.3
     var title = UILabel()
+    var _textFont:UIFont = UIFont()
 
     /**
         Quando qualquer parâmetro é alterado, caso este atributo esteja marcado como TRUE, esta alteração será replicada para as demais linhas (Left,Right,Top,Bottom)
@@ -62,7 +63,7 @@ import UIKit
 	
 	@IBInspectable var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
 		didSet {
-			title.font = titleFont
+			title.font = UIFont(name: _textFont.fontName, size: 12.0)
 			title.sizeToFit()
 		}
 	}
@@ -169,11 +170,13 @@ import UIKit
 		
 	// MARK:- Private Methods
 	private func setup() {
-		borderStyle = UITextBorderStyle.None
+        _textFont = self.font!
+        borderStyle = UITextBorderStyle.None
 		titleActiveTextColour = tintColor
 		// Set up title label
 		title.alpha = 0.0
-		title.font = titleFont
+		title.font = _textFont
+        title.font = UIFont(name: _textFont.fontName, size: 12.0)
 		title.textColor = titleTextColour
 		if let str = placeholder {
 			if !str.isEmpty {
@@ -252,7 +255,7 @@ import UIKit
 				self.title.frame = r
 			}, completion:nil)
 	}
-	
+    
 	private func hideTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
 		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseIn, animations:{
@@ -262,5 +265,6 @@ import UIKit
 			r.origin.y = self.title.font.lineHeight + self.hintYPadding
 			self.title.frame = r
 			}, completion:nil)
+            self.font = _textFont
 	}
 }

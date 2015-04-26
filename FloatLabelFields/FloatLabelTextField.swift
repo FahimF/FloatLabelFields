@@ -176,12 +176,16 @@ import UIKit
 		// Set up title label
 		title.alpha = 0.0
 		title.font = _textFont
-        title.font = UIFont(name: _textFont.fontName, size: 12.0)
+        	title.font = UIFont(name: _textFont.fontName, size: 12.0)
 		title.textColor = titleTextColour
 		if let str = placeholder {
 			if !str.isEmpty {
 				title.text = str
 				title.sizeToFit()
+                		self.attributedPlaceholder = NSAttributedString(
+                			string: str, attributes: [NSForegroundColorAttributeName:self.titleTextColour]
+                		)
+
 
 			}
 		}

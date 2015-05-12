@@ -7,16 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46062ECE1B02476E00F24C8E /* FloatLabelFields.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46062EB51B0241B100F24C8E /* FloatLabelFields.framework */; };
+		46062ECF1B02476E00F24C8E /* FloatLabelFields.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46062EB51B0241B100F24C8E /* FloatLabelFields.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD72F5ED1A2845270097D54A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72F5EC1A2845270097D54A /* AppDelegate.swift */; };
 		DD72F5EF1A2845270097D54A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72F5EE1A2845270097D54A /* ViewController.swift */; };
 		DD72F5F21A2845270097D54A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F01A2845270097D54A /* Main.storyboard */; };
 		DD72F5F41A2845270097D54A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F31A2845270097D54A /* Images.xcassets */; };
 		DD72F5F71A2845270097D54A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F51A2845270097D54A /* LaunchScreen.xib */; };
-		DDC84CB71A28902000040F0F /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */; };
-		DDC84CB81A28902000040F0F /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		46062EB41B0241B100F24C8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46062EAF1B0241B000F24C8E /* FloatLabelFields.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 46062E931B0241B000F24C8E;
+			remoteInfo = FloatLabelFields;
+		};
+		46062EB61B0241B100F24C8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46062EAF1B0241B000F24C8E /* FloatLabelFields.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 46062E9E1B0241B000F24C8E;
+			remoteInfo = FloatLabelFieldsTests;
+		};
+		46062ED51B0247C100F24C8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46062EAF1B0241B000F24C8E /* FloatLabelFields.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 46062E921B0241B000F24C8E;
+			remoteInfo = FloatLabelFields;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		46062ED21B02476E00F24C8E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				46062ECF1B02476E00F24C8E /* FloatLabelFields.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		46062EAF1B0241B000F24C8E /* FloatLabelFields.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FloatLabelFields.xcodeproj; path = FloatLabelFields/FloatLabelFields.xcodeproj; sourceTree = "<group>"; };
 		DD72F5E71A2845270097D54A /* FloatLabelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatLabelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD72F5EB1A2845270097D54A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD72F5EC1A2845270097D54A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,8 +63,6 @@
 		DD72F5F11A2845270097D54A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD72F5F31A2845270097D54A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD72F5F61A2845270097D54A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatLabelTextField.swift; path = ../FloatLabelFields/FloatLabelTextField.swift; sourceTree = "<group>"; };
-		DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatLabelTextView.swift; path = ../FloatLabelFields/FloatLabelTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +70,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46062ECE1B02476E00F24C8E /* FloatLabelFields.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46062EB01B0241B000F24C8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46062EB51B0241B100F24C8E /* FloatLabelFields.framework */,
+				46062EB71B0241B100F24C8E /* FloatLabelFieldsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DD72F5DE1A2845270097D54A = {
 			isa = PBXGroup;
 			children = (
+				46062EAF1B0241B000F24C8E /* FloatLabelFields.xcodeproj */,
 				DD72F5E91A2845270097D54A /* FloatLabelExample */,
-				DDC84CB41A28900000040F0F /* FloatLabelFields */,
 				DD72F5E81A2845270097D54A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,15 +124,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DDC84CB41A28900000040F0F /* FloatLabelFields */ = {
-			isa = PBXGroup;
-			children = (
-				DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */,
-				DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */,
-			);
-			name = FloatLabelFields;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,10 +134,12 @@
 				DD72F5E31A2845270097D54A /* Sources */,
 				DD72F5E41A2845270097D54A /* Frameworks */,
 				DD72F5E51A2845270097D54A /* Resources */,
+				46062ED21B02476E00F24C8E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				46062ED61B0247C100F24C8E /* PBXTargetDependency */,
 			);
 			name = FloatLabelExample;
 			productName = FloatLabelExample;
@@ -131,12 +171,35 @@
 			mainGroup = DD72F5DE1A2845270097D54A;
 			productRefGroup = DD72F5E81A2845270097D54A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 46062EB01B0241B000F24C8E /* Products */;
+					ProjectRef = 46062EAF1B0241B000F24C8E /* FloatLabelFields.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DD72F5E61A2845270097D54A /* FloatLabelExample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		46062EB51B0241B100F24C8E /* FloatLabelFields.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FloatLabelFields.framework;
+			remoteRef = 46062EB41B0241B100F24C8E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		46062EB71B0241B100F24C8E /* FloatLabelFieldsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FloatLabelFieldsTests.xctest;
+			remoteRef = 46062EB61B0241B100F24C8E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DD72F5E51A2845270097D54A /* Resources */ = {
@@ -156,14 +219,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC84CB71A28902000040F0F /* FloatLabelTextField.swift in Sources */,
-				DDC84CB81A28902000040F0F /* FloatLabelTextView.swift in Sources */,
 				DD72F5EF1A2845270097D54A /* ViewController.swift in Sources */,
 				DD72F5ED1A2845270097D54A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46062ED61B0247C100F24C8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FloatLabelFields;
+			targetProxy = 46062ED51B0247C100F24C8E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DD72F5F01A2845270097D54A /* Main.storyboard */ = {
@@ -269,6 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FloatLabelExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -279,6 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FloatLabelExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

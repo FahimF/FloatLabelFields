@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FloatLabelFields
 
 class ViewController: UITableViewController {
 	@IBOutlet var vwAddress:FloatLabelTextView!

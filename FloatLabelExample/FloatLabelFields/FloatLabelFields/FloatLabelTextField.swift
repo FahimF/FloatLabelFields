@@ -14,12 +14,12 @@
 
 import UIKit
 
-@IBDesignable class FloatLabelTextField: UITextField {
+@IBDesignable public class FloatLabelTextField: UITextField {
 	let animationDuration = 0.3
 	var title = UILabel()
 	
 	// MARK:- Properties
-	override var accessibilityLabel:String! {
+	override public var accessibilityLabel:String! {
 		get {
 			if text.isEmpty {
 				return title.text
@@ -32,30 +32,30 @@ import UIKit
 		}
 	}
 	
-	override var placeholder:String? {
+	override public var placeholder:String? {
 		didSet {
 			title.text = placeholder
 			title.sizeToFit()
 		}
 	}
 	
-	override var attributedPlaceholder:NSAttributedString? {
+	override public var attributedPlaceholder:NSAttributedString? {
 		didSet {
 			title.text = attributedPlaceholder?.string
 			title.sizeToFit()
 		}
 	}
 	
-	var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
+	public var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
 		didSet {
 			title.font = titleFont
 			title.sizeToFit()
 		}
 	}
 	
-	@IBInspectable var hintYPadding:CGFloat = 0.0
+	@IBInspectable public var hintYPadding:CGFloat = 0.0
 
-	@IBInspectable var titleYPadding:CGFloat = 0.0 {
+	@IBInspectable public var titleYPadding:CGFloat = 0.0 {
 		didSet {
 			var r = title.frame
 			r.origin.y = titleYPadding
@@ -63,7 +63,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleTextColour:UIColor = UIColor.grayColor() {
+	@IBInspectable public var titleTextColour:UIColor = UIColor.grayColor() {
 		didSet {
 			if !isFirstResponder() {
 				title.textColor = titleTextColour
@@ -71,7 +71,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleActiveTextColour:UIColor! {
+	@IBInspectable public var titleActiveTextColour:UIColor! {
 		didSet {
 			if isFirstResponder() {
 				title.textColor = titleActiveTextColour
@@ -80,18 +80,18 @@ import UIKit
 	}
 	
 	// MARK:- Init
-	required init(coder aDecoder:NSCoder) {
+	required public init(coder aDecoder:NSCoder) {
 		super.init(coder:aDecoder)
 		setup()
 	}
 	
-	override init(frame:CGRect) {
+	override public init(frame:CGRect) {
 		super.init(frame:frame)
 		setup()
 	}
 	
 	// MARK:- Overrides
-	override func layoutSubviews() {
+	override public func layoutSubviews() {
 		super.layoutSubviews()
 		setTitlePositionForTextAlignment()
 		let isResp = isFirstResponder()
@@ -110,7 +110,7 @@ import UIKit
 		}
 	}
 	
-	override func textRectForBounds(bounds:CGRect) -> CGRect {
+	override public func textRectForBounds(bounds:CGRect) -> CGRect {
 		var r = super.textRectForBounds(bounds)
 		if !text.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
@@ -120,7 +120,7 @@ import UIKit
 		return CGRectIntegral(r)
 	}
 	
-	override func editingRectForBounds(bounds:CGRect) -> CGRect {
+	override public func editingRectForBounds(bounds:CGRect) -> CGRect {
 		var r = super.editingRectForBounds(bounds)
 		if !text.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
@@ -130,7 +130,7 @@ import UIKit
 		return CGRectIntegral(r)
 	}
 	
-	override func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
+	override public func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
 		var r = super.clearButtonRectForBounds(bounds)
 		if !text.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class FloatLabelTextView: UITextView {
+@IBDesignable public class FloatLabelTextView: UITextView {
 	let animationDuration = 0.3
 	let placeholderTextColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.65)
 	private var isIB = false
@@ -17,7 +17,7 @@ import UIKit
 	private var initialTopInset:CGFloat = 0
 	
 	// MARK:- Properties
-	override var accessibilityLabel:String! {
+	override public var accessibilityLabel:String! {
 		get {
 			if text.isEmpty {
 				return title.text!
@@ -29,13 +29,13 @@ import UIKit
 		}
 	}
 	
-	var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
+	public var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
 		didSet {
 			title.font = titleFont
 		}
 	}
 	
-	@IBInspectable var hint:String = "" {
+	@IBInspectable public var hint:String = "" {
 		didSet {
 			title.text = hint
 			title.sizeToFit()
@@ -47,13 +47,13 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var hintYPadding:CGFloat = 0.0 {
+	@IBInspectable public var hintYPadding:CGFloat = 0.0 {
 		didSet {
 			adjustTopTextInset()
 		}
 	}
 	
-	@IBInspectable var titleYPadding:CGFloat = 0.0 {
+	@IBInspectable public var titleYPadding:CGFloat = 0.0 {
 		didSet {
 			var r = title.frame
 			r.origin.y = titleYPadding
@@ -61,7 +61,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleTextColour:UIColor = UIColor.grayColor() {
+	@IBInspectable public var titleTextColour:UIColor = UIColor.grayColor() {
 		didSet {
 			if !isFirstResponder() {
 				title.textColor = titleTextColour
@@ -69,7 +69,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleActiveTextColour:UIColor = UIColor.cyanColor() {
+	@IBInspectable public var titleActiveTextColour:UIColor = UIColor.cyanColor() {
 		didSet {
 			if isFirstResponder() {
 				title.textColor = titleActiveTextColour
@@ -78,12 +78,12 @@ import UIKit
 	}
 	
 	// MARK:- Init
-	required init(coder aDecoder:NSCoder) {
+	required public init(coder aDecoder:NSCoder) {
 		super.init(coder:aDecoder)
 		setup()
 	}
 	
-	override init(frame:CGRect, textContainer:NSTextContainer?) {
+	override public init(frame:CGRect, textContainer:NSTextContainer?) {
 		super.init(frame:frame, textContainer:textContainer)
 		setup()
 	}
@@ -98,12 +98,12 @@ import UIKit
 	}
 	
 	// MARK:- Overrides
-	override func prepareForInterfaceBuilder() {
+	override public func prepareForInterfaceBuilder() {
 		isIB = true
 		setup()
 	}
 	
-	override func layoutSubviews() {
+	override public func layoutSubviews() {
 		super.layoutSubviews()
 		adjustTopTextInset()
 		hintLabel.alpha = text.isEmpty ? 1.0 : 0.0

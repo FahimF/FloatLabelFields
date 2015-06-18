@@ -14,14 +14,14 @@
 
 import UIKit
 
-@IBDesignable class FloatLabelTextField: UITextField {
+@IBDesignable public class FloatLabelTextField: UITextField {
 	let animationDuration = 0.3
 	var title = UILabel()
 	
 	// MARK:- Properties
-	override var accessibilityLabel:String! {
+	override public var accessibilityLabel:String! {
 		get {
-			if text.isEmpty {
+			if text!.isEmpty {
 				return title.text
 			} else {
 				return text
@@ -32,30 +32,30 @@ import UIKit
 		}
 	}
 	
-	override var placeholder:String? {
+	override public var placeholder:String? {
 		didSet {
 			title.text = placeholder
 			title.sizeToFit()
 		}
 	}
 	
-	override var attributedPlaceholder:NSAttributedString? {
+	override public var attributedPlaceholder:NSAttributedString? {
 		didSet {
 			title.text = attributedPlaceholder?.string
 			title.sizeToFit()
 		}
 	}
 	
-	var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
+	public var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
 		didSet {
 			title.font = titleFont
 			title.sizeToFit()
 		}
 	}
 	
-	@IBInspectable var hintYPadding:CGFloat = 0.0
+	@IBInspectable public var hintYPadding:CGFloat = 0.0
 
-	@IBInspectable var titleYPadding:CGFloat = 0.0 {
+	@IBInspectable public var titleYPadding:CGFloat = 0.0 {
 		didSet {
 			var r = title.frame
 			r.origin.y = titleYPadding
@@ -63,7 +63,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleTextColour:UIColor = UIColor.grayColor() {
+	@IBInspectable public var titleTextColour:UIColor = UIColor.grayColor() {
 		didSet {
 			if !isFirstResponder() {
 				title.textColor = titleTextColour
@@ -71,7 +71,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleActiveTextColour:UIColor! {
+	@IBInspectable public var titleActiveTextColour:UIColor! {
 		didSet {
 			if isFirstResponder() {
 				title.textColor = titleActiveTextColour
@@ -80,28 +80,28 @@ import UIKit
 	}
 	
 	// MARK:- Init
-	required init(coder aDecoder:NSCoder) {
+	required public init(coder aDecoder:NSCoder) {
 		super.init(coder:aDecoder)
 		setup()
 	}
 	
-	override init(frame:CGRect) {
+    override public init(frame:CGRect) {
 		super.init(frame:frame)
 		setup()
 	}
 	
 	// MARK:- Overrides
-	override func layoutSubviews() {
+	override public func layoutSubviews() {
 		super.layoutSubviews()
 		setTitlePositionForTextAlignment()
 		let isResp = isFirstResponder()
-		if isResp && !text.isEmpty {
+		if isResp && !text!.isEmpty {
 			title.textColor = titleActiveTextColour
 		} else {
 			title.textColor = titleTextColour
 		}
 		// Should we show or hide the title label?
-		if text.isEmpty {
+		if text!.isEmpty {
 			// Hide
 			hideTitle(isResp)
 		} else {
@@ -110,9 +110,9 @@ import UIKit
 		}
 	}
 	
-	override func textRectForBounds(bounds:CGRect) -> CGRect {
+	override public func textRectForBounds(bounds:CGRect) -> CGRect {
 		var r = super.textRectForBounds(bounds)
-		if !text.isEmpty {
+		if !text!.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
 			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
@@ -120,9 +120,9 @@ import UIKit
 		return CGRectIntegral(r)
 	}
 	
-	override func editingRectForBounds(bounds:CGRect) -> CGRect {
+	override public func editingRectForBounds(bounds:CGRect) -> CGRect {
 		var r = super.editingRectForBounds(bounds)
-		if !text.isEmpty {
+		if !text!.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
 			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
@@ -130,9 +130,9 @@ import UIKit
 		return CGRectIntegral(r)
 	}
 	
-	override func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
+	override public func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
 		var r = super.clearButtonRectForBounds(bounds)
-		if !text.isEmpty {
+		if !text!.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
 			r = CGRect(x:r.origin.x, y:r.origin.y + (top * 0.5), width:r.size.width, height:r.size.height)
@@ -160,11 +160,11 @@ import UIKit
 	}
 
 	private func maxTopInset()->CGFloat {
-		return max(0, floor(bounds.size.height - font.lineHeight - 4.0))
+		return max(0, floor(bounds.size.height - font!.lineHeight - 4.0))
 	}
 	
 	private func setTitlePositionForTextAlignment() {
-		var r = textRectForBounds(bounds)
+		let r = textRectForBounds(bounds)
 		var x = r.origin.x
 		if textAlignment == NSTextAlignment.Center {
 			x = r.origin.x + (r.size.width * 0.5) - title.frame.size.width
@@ -176,7 +176,7 @@ import UIKit
 	
 	private func showTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseOut, animations:{
+		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions([.BeginFromCurrentState, .CurveEaseOut]), animations:{
 				// Animation
 				self.title.alpha = 1.0
 				var r = self.title.frame
@@ -187,7 +187,7 @@ import UIKit
 	
 	private func hideTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseIn, animations:{
+		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions([.BeginFromCurrentState, .CurveEaseIn]), animations:{
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

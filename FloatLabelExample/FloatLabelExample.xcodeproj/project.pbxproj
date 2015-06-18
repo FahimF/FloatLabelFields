@@ -7,16 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46A7E0D01B3283E20003F9EC /* FloatLabelFields.h in Headers */ = {isa = PBXBuildFile; fileRef = 46A7E0CF1B3283E20003F9EC /* FloatLabelFields.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46A7E0D61B3283E30003F9EC /* FloatLabelFields.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A7E0CB1B3283E20003F9EC /* FloatLabelFields.framework */; };
+		46A7E0DF1B3283E30003F9EC /* FloatLabelFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7E0DE1B3283E30003F9EC /* FloatLabelFieldsTests.swift */; };
+		46A7E0E21B3283E30003F9EC /* FloatLabelFields.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A7E0CB1B3283E20003F9EC /* FloatLabelFields.framework */; };
+		46A7E0E31B3283E30003F9EC /* FloatLabelFields.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46A7E0CB1B3283E20003F9EC /* FloatLabelFields.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46A7E0EB1B3284450003F9EC /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */; };
+		46A7E0EC1B3284450003F9EC /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */; };
 		DD72F5ED1A2845270097D54A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72F5EC1A2845270097D54A /* AppDelegate.swift */; };
 		DD72F5EF1A2845270097D54A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72F5EE1A2845270097D54A /* ViewController.swift */; };
 		DD72F5F21A2845270097D54A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F01A2845270097D54A /* Main.storyboard */; };
 		DD72F5F41A2845270097D54A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F31A2845270097D54A /* Images.xcassets */; };
 		DD72F5F71A2845270097D54A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD72F5F51A2845270097D54A /* LaunchScreen.xib */; };
-		DDC84CB71A28902000040F0F /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */; };
-		DDC84CB81A28902000040F0F /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		46A7E0D71B3283E30003F9EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD72F5DF1A2845270097D54A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46A7E0CA1B3283E20003F9EC;
+			remoteInfo = FloatLabelFields;
+		};
+		46A7E0D91B3283E30003F9EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD72F5DF1A2845270097D54A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD72F5E61A2845270097D54A;
+			remoteInfo = FloatLabelExample;
+		};
+		46A7E0E01B3283E30003F9EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD72F5DF1A2845270097D54A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46A7E0CA1B3283E20003F9EC;
+			remoteInfo = FloatLabelFields;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		46A7E0E91B3283E30003F9EC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				46A7E0E31B3283E30003F9EC /* FloatLabelFields.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		46A7E0CB1B3283E20003F9EC /* FloatLabelFields.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FloatLabelFields.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46A7E0CE1B3283E20003F9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46A7E0CF1B3283E20003F9EC /* FloatLabelFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloatLabelFields.h; sourceTree = "<group>"; };
+		46A7E0D51B3283E30003F9EC /* FloatLabelFieldsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatLabelFieldsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46A7E0DD1B3283E30003F9EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46A7E0DE1B3283E30003F9EC /* FloatLabelFieldsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelFieldsTests.swift; sourceTree = "<group>"; };
 		DD72F5E71A2845270097D54A /* FloatLabelExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatLabelExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD72F5EB1A2845270097D54A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD72F5EC1A2845270097D54A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,26 +73,79 @@
 		DD72F5F11A2845270097D54A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD72F5F31A2845270097D54A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD72F5F61A2845270097D54A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatLabelTextField.swift; path = ../FloatLabelFields/FloatLabelTextField.swift; sourceTree = "<group>"; };
-		DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatLabelTextView.swift; path = ../FloatLabelFields/FloatLabelTextView.swift; sourceTree = "<group>"; };
+		DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DD72F5E41A2845270097D54A /* Frameworks */ = {
+		46A7E0C71B3283E20003F9EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		46A7E0D21B3283E30003F9EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A7E0D61B3283E30003F9EC /* FloatLabelFields.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD72F5E41A2845270097D54A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A7E0E21B3283E30003F9EC /* FloatLabelFields.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46A7E0CC1B3283E20003F9EC /* FloatLabelFields */ = {
+			isa = PBXGroup;
+			children = (
+				DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */,
+				DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */,
+				46A7E0CF1B3283E20003F9EC /* FloatLabelFields.h */,
+				46A7E0CD1B3283E20003F9EC /* Supporting Files */,
+			);
+			path = FloatLabelFields;
+			sourceTree = "<group>";
+		};
+		46A7E0CD1B3283E20003F9EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				46A7E0CE1B3283E20003F9EC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46A7E0DB1B3283E30003F9EC /* FloatLabelFieldsTests */ = {
+			isa = PBXGroup;
+			children = (
+				46A7E0DE1B3283E30003F9EC /* FloatLabelFieldsTests.swift */,
+				46A7E0DC1B3283E30003F9EC /* Supporting Files */,
+			);
+			path = FloatLabelFieldsTests;
+			sourceTree = "<group>";
+		};
+		46A7E0DC1B3283E30003F9EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				46A7E0DD1B3283E30003F9EC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		DD72F5DE1A2845270097D54A = {
 			isa = PBXGroup;
 			children = (
 				DD72F5E91A2845270097D54A /* FloatLabelExample */,
-				DDC84CB41A28900000040F0F /* FloatLabelFields */,
+				46A7E0CC1B3283E20003F9EC /* FloatLabelFields */,
+				46A7E0DB1B3283E30003F9EC /* FloatLabelFieldsTests */,
 				DD72F5E81A2845270097D54A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				DD72F5E71A2845270097D54A /* FloatLabelExample.app */,
+				46A7E0CB1B3283E20003F9EC /* FloatLabelFields.framework */,
+				46A7E0D51B3283E30003F9EC /* FloatLabelFieldsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,18 +181,57 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DDC84CB41A28900000040F0F /* FloatLabelFields */ = {
-			isa = PBXGroup;
-			children = (
-				DDC84CB51A28902000040F0F /* FloatLabelTextField.swift */,
-				DDC84CB61A28902000040F0F /* FloatLabelTextView.swift */,
-			);
-			name = FloatLabelFields;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		46A7E0C81B3283E20003F9EC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A7E0D01B3283E20003F9EC /* FloatLabelFields.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		46A7E0CA1B3283E20003F9EC /* FloatLabelFields */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46A7E0E81B3283E30003F9EC /* Build configuration list for PBXNativeTarget "FloatLabelFields" */;
+			buildPhases = (
+				46A7E0C61B3283E20003F9EC /* Sources */,
+				46A7E0C71B3283E20003F9EC /* Frameworks */,
+				46A7E0C81B3283E20003F9EC /* Headers */,
+				46A7E0C91B3283E20003F9EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FloatLabelFields;
+			productName = FloatLabelFields;
+			productReference = 46A7E0CB1B3283E20003F9EC /* FloatLabelFields.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		46A7E0D41B3283E30003F9EC /* FloatLabelFieldsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46A7E0EA1B3283E30003F9EC /* Build configuration list for PBXNativeTarget "FloatLabelFieldsTests" */;
+			buildPhases = (
+				46A7E0D11B3283E30003F9EC /* Sources */,
+				46A7E0D21B3283E30003F9EC /* Frameworks */,
+				46A7E0D31B3283E30003F9EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46A7E0D81B3283E30003F9EC /* PBXTargetDependency */,
+				46A7E0DA1B3283E30003F9EC /* PBXTargetDependency */,
+			);
+			name = FloatLabelFieldsTests;
+			productName = FloatLabelFieldsTests;
+			productReference = 46A7E0D51B3283E30003F9EC /* FloatLabelFieldsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DD72F5E61A2845270097D54A /* FloatLabelExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD72F6061A2845270097D54A /* Build configuration list for PBXNativeTarget "FloatLabelExample" */;
@@ -96,10 +239,12 @@
 				DD72F5E31A2845270097D54A /* Sources */,
 				DD72F5E41A2845270097D54A /* Frameworks */,
 				DD72F5E51A2845270097D54A /* Resources */,
+				46A7E0E91B3283E30003F9EC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				46A7E0E11B3283E30003F9EC /* PBXTargetDependency */,
 			);
 			name = FloatLabelExample;
 			productName = FloatLabelExample;
@@ -112,9 +257,17 @@
 		DD72F5DF1A2845270097D54A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "RookSoft Ltd.";
 				TargetAttributes = {
+					46A7E0CA1B3283E20003F9EC = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					46A7E0D41B3283E30003F9EC = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = DD72F5E61A2845270097D54A;
+					};
 					DD72F5E61A2845270097D54A = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -134,11 +287,27 @@
 			projectRoot = "";
 			targets = (
 				DD72F5E61A2845270097D54A /* FloatLabelExample */,
+				46A7E0CA1B3283E20003F9EC /* FloatLabelFields */,
+				46A7E0D41B3283E30003F9EC /* FloatLabelFieldsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		46A7E0C91B3283E20003F9EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A7E0D31B3283E30003F9EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD72F5E51A2845270097D54A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,18 +321,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		46A7E0C61B3283E20003F9EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A7E0EB1B3284450003F9EC /* FloatLabelTextField.swift in Sources */,
+				46A7E0EC1B3284450003F9EC /* FloatLabelTextView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A7E0D11B3283E30003F9EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A7E0DF1B3283E30003F9EC /* FloatLabelFieldsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DD72F5E31A2845270097D54A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC84CB71A28902000040F0F /* FloatLabelTextField.swift in Sources */,
-				DDC84CB81A28902000040F0F /* FloatLabelTextView.swift in Sources */,
 				DD72F5EF1A2845270097D54A /* ViewController.swift in Sources */,
 				DD72F5ED1A2845270097D54A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46A7E0D81B3283E30003F9EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46A7E0CA1B3283E20003F9EC /* FloatLabelFields */;
+			targetProxy = 46A7E0D71B3283E30003F9EC /* PBXContainerItemProxy */;
+		};
+		46A7E0DA1B3283E30003F9EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD72F5E61A2845270097D54A /* FloatLabelExample */;
+			targetProxy = 46A7E0D91B3283E30003F9EC /* PBXContainerItemProxy */;
+		};
+		46A7E0E11B3283E30003F9EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46A7E0CA1B3283E20003F9EC /* FloatLabelFields */;
+			targetProxy = 46A7E0E01B3283E30003F9EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DD72F5F01A2845270097D54A /* Main.storyboard */ = {
@@ -185,6 +387,94 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		46A7E0E41B3283E30003F9EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FloatLabelFields/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Vidhyadharan-Mohanram.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		46A7E0E51B3283E30003F9EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = FloatLabelFields/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Vidhyadharan-Mohanram.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		46A7E0E61B3283E30003F9EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FloatLabelFieldsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Vidhyadharan-Mohanram.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FloatLabelExample.app/FloatLabelExample";
+			};
+			name = Debug;
+		};
+		46A7E0E71B3283E30003F9EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = FloatLabelFieldsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Vidhyadharan-Mohanram.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FloatLabelExample.app/FloatLabelExample";
+			};
+			name = Release;
+		};
 		DD72F6041A2845270097D54A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -205,6 +495,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -219,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -256,7 +547,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -270,6 +561,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FloatLabelExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.farook.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -280,6 +572,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FloatLabelExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.farook.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -287,6 +580,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		46A7E0E81B3283E30003F9EC /* Build configuration list for PBXNativeTarget "FloatLabelFields" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A7E0E41B3283E30003F9EC /* Debug */,
+				46A7E0E51B3283E30003F9EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46A7E0EA1B3283E30003F9EC /* Build configuration list for PBXNativeTarget "FloatLabelFieldsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A7E0E61B3283E30003F9EC /* Debug */,
+				46A7E0E71B3283E30003F9EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DD72F5E21A2845270097D54A /* Build configuration list for PBXProject "FloatLabelExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

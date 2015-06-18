@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FloatLabelFields
 
 class ViewController: UITableViewController {
 	@IBOutlet var vwAddress:FloatLabelTextView!
@@ -20,6 +21,7 @@ class ViewController: UITableViewController {
 		}
 		// Set up a FloatLabelTextField via code
 		let fld = FloatLabelTextField(frame:vwHolder.bounds)
+        fld.frame.origin.x = 8.0
 		fld.placeholder = "Comments"
 		// Set font for place holder (only displays in title mode)
 		if let fnt = UIFont(name:"Zapfino", size:12) {

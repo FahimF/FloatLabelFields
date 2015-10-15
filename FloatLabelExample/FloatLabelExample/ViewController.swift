@@ -5,24 +5,26 @@
 //  Created by Fahim Farook on 28/11/14.
 //  Copyright (c) 2014 RookSoft Ltd. All rights reserved.
 //
+//  Updated for Swift 2.0 by Myles Ringle on 15/10/15.
+//
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UIViewController {
 	@IBOutlet var vwAddress:FloatLabelTextView!
 	@IBOutlet var vwHolder:UIView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Set font for placeholder of a FloatLabelTextView
-		if let fnt = UIFont(name:"Zapfino", size:12) {
+		if let fnt = UIFont(name:"HelveticaNeue", size:12) {
 			vwAddress.titleFont = fnt
 		}
 		// Set up a FloatLabelTextField via code
 		let fld = FloatLabelTextField(frame:vwHolder.bounds)
 		fld.placeholder = "Comments"
 		// Set font for place holder (only displays in title mode)
-		if let fnt = UIFont(name:"Zapfino", size:12) {
+		if let fnt = UIFont(name:"HelveticaNeue", size:12) {
 			fld.titleFont = fnt
 		}
 		vwHolder.addSubview(fld)

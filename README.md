@@ -14,6 +14,8 @@ FloatLabelFields
 
 ## Overview ##
 
+** Updated for Swift 2.0 **
+
 `FloatLabelFields` is the Swift implementation of a UX pattern that has come to be known as the **"Float Label Pattern"**. The initial Objective-C implementation of this pattern can be found on Github as [JVFloatLabeledTextField](https://github.com/jverdi/JVFloatLabeledTextField).
 
 Due to space constraints on mobile devices, it is common to rely solely on placeholders as a means to label fields.
@@ -39,7 +41,7 @@ Just add a `UITextField` or `UITextView` to your storyboard and then set the cus
 
 **Note:** Sometimes, you might have to set the Module explicitly instead of letting Xcode set it implicitly too before it works.
 
-Next, switch to the Attributes Inspector tab and set the necessary attributes to configure your text field or text view. The *Placeholder* attribute (or *Hint* in the case of a `UITextView`) defines the actual title which will be used for your field. 
+Next, switch to the Attributes Inspector tab and set the necessary attributes to configure your text field or text view. The *Placeholder* attribute (or *Hint* in the case of a `UITextView`) defines the actual title which will be used for your field.
 
 ![Properties](https://cloud.githubusercontent.com/assets/181110/5260537/f652f66a-7a4a-11e4-80ee-2645e3fe3e80.png)
 
@@ -61,6 +63,7 @@ vwHolder.addSubview(fld)
 
 ## Credits ##
 - This project derives inspiration from [jverdi](https://github.com/jverdi)'s Objective-C [JVFloatLabeledTextField](https://github.com/jverdi/JVFloatLabeledTextField) project.
+- Updated for Swift 2.0 by [Myles Ringle](https://github.com/meismyles).
 
 ## Additional References ##
 
@@ -72,6 +75,4 @@ vwHolder.addSubview(fld)
 
 * E-mail: fahimf (at) gmail (dot) com
 * Web: [http://rooksoft.sg/](http://rooksoft.sg/)
-* Twitter: [http://twitter.com/FahimFarook](http://twitter.com/FahimFarook) 
-
-
+* Twitter: [http://twitter.com/FahimFarook](http://twitter.com/FahimFarook)

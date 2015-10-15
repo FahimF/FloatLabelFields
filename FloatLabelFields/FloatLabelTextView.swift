@@ -15,7 +15,7 @@ import UIKit
 	let animationDuration = 0.3
 	let placeholderTextColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.65)
 	private var isIB = false
-	private var title = UILabel()
+    var title = UILabel()
 	private var hintLabel = UILabel()
 	private var initialTopInset:CGFloat = 0
 	

@@ -14,7 +14,7 @@ FloatLabelFields
 
 ## Overview ##
 
-** Updated for Swift 2.0 **
+**Updated for Swift 2.0**
 
 `FloatLabelFields` is the Swift implementation of a UX pattern that has come to be known as the **"Float Label Pattern"**. The initial Objective-C implementation of this pattern can be found on Github as [JVFloatLabeledTextField](https://github.com/jverdi/JVFloatLabeledTextField).
 

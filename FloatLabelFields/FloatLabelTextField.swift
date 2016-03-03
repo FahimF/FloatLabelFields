@@ -167,14 +167,16 @@ import UIKit
 	}
 	
 	private func setTitlePositionForTextAlignment() {
-        let r = textRectForBounds(bounds)
+		let r = textRectForBounds(bounds)
 		var x = r.origin.x
+		var width = title.frame.size.width
 		if textAlignment == NSTextAlignment.Center {
-			x = r.origin.x + (r.size.width * 0.5) - title.frame.size.width
+			width = self.frame.size.width
+			title.textAlignment = NSTextAlignment.Center
 		} else if textAlignment == NSTextAlignment.Right {
 			x = r.origin.x + r.size.width - title.frame.size.width
 		}
-		title.frame = CGRect(x:x, y:title.frame.origin.y, width:title.frame.size.width, height:title.frame.size.height)
+		title.frame = CGRect(x:x, y:title.frame.origin.y, width:width, height:title.frame.size.height)
 	}
 	
 	private func showTitle(animated:Bool) {

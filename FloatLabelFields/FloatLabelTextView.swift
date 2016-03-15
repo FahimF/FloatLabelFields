@@ -3,7 +3,10 @@
 //  FloatLabelFields
 //
 //  Created by Fahim Farook on 28/11/14.
-//  Copyright (c) 2014 RookSoft Ltd. All rights reserved.
+//  Copyright (c) 2014 RookSoft Ltd & Myles Ringle. All rights reserved.
+//
+//
+//  Updated for Swift 2.0 by Myles Ringle on 15/10/15.
 //
 
 import UIKit
@@ -12,12 +15,12 @@ import UIKit
 	let animationDuration = 0.3
 	let placeholderTextColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.65)
 	private var isIB = false
-	private var title = UILabel()
+    var title = UILabel()
 	private var hintLabel = UILabel()
 	private var initialTopInset:CGFloat = 0
 	
 	// MARK:- Properties
-	override var accessibilityLabel:String! {
+	override var accessibilityLabel:String? {
 		get {
 			if text.isEmpty {
 				return title.text!
@@ -78,8 +81,8 @@ import UIKit
 	}
 	
 	// MARK:- Init
-	required init(coder aDecoder:NSCoder) {
-		super.init(coder:aDecoder)
+	required init?(coder aDecoder:NSCoder) {
+		super.init(coder:aDecoder)!
 		setup()
 	}
 	
@@ -191,7 +194,7 @@ import UIKit
 	
 	private func showTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseOut, animations:{
+		UIView.animateWithDuration(dur, delay:0, options: [.BeginFromCurrentState, .CurveEaseOut], animations:{
 			// Animation
 			self.title.alpha = 1.0
 			var r = self.title.frame
@@ -202,7 +205,7 @@ import UIKit
 	
 	private func hideTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseIn, animations:{
+		UIView.animateWithDuration(dur, delay:0, options: [.BeginFromCurrentState, .CurveEaseIn], animations:{
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

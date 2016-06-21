@@ -42,14 +42,14 @@ import UIKit
 		}
 	}
 	
-	override var attributedPlaceholder:NSAttributedString? {
+	override var attributedPlaceholder:AttributedString? {
 		didSet {
 			title.text = attributedPlaceholder?.string
 			title.sizeToFit()
 		}
 	}
 	
-	var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
+	var titleFont:UIFont = UIFont.systemFont(ofSize: 12.0) {
 		didSet {
 			title.font = titleFont
 			title.sizeToFit()
@@ -66,7 +66,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleTextColour:UIColor = UIColor.grayColor() {
+	@IBInspectable var titleTextColour:UIColor = UIColor.gray() {
 		didSet {
 			if !isFirstResponder() {
 				title.textColor = titleTextColour
@@ -113,41 +113,41 @@ import UIKit
 		}
 	}
 	
-	override func textRectForBounds(bounds:CGRect) -> CGRect {
-		var r = super.textRectForBounds(bounds)
+	override func textRect(forBounds bounds:CGRect) -> CGRect {
+		var r = super.textRect(forBounds: bounds)
 		if !text!.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
 			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
 		}
-		return CGRectIntegral(r)
+		return r.integral
 	}
 	
-	override func editingRectForBounds(bounds:CGRect) -> CGRect {
-		var r = super.editingRectForBounds(bounds)
+	override func editingRect(forBounds bounds:CGRect) -> CGRect {
+		var r = super.editingRect(forBounds: bounds)
 		if !text!.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
 			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
 		}
-		return CGRectIntegral(r)
+		return r.integral
 	}
 	
-	override func clearButtonRectForBounds(bounds:CGRect) -> CGRect {
-		var r = super.clearButtonRectForBounds(bounds)
+	override func clearButtonRect(forBounds bounds:CGRect) -> CGRect {
+		var r = super.clearButtonRect(forBounds: bounds)
 		if !text!.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
 			r = CGRect(x:r.origin.x, y:r.origin.y + (top * 0.5), width:r.size.width, height:r.size.height)
 		}
-		return CGRectIntegral(r)
+		return r.integral
 	}
 	
 	// MARK:- Public Methods
 	
 	// MARK:- Private Methods
 	private func setup() {
-		borderStyle = UITextBorderStyle.None
+		borderStyle = UITextBorderStyle.none
 		titleActiveTextColour = tintColor
 		// Set up title label
 		title.alpha = 0.0
@@ -167,21 +167,21 @@ import UIKit
 	}
 	
 	private func setTitlePositionForTextAlignment() {
-		let r = textRectForBounds(bounds)
+		let r = textRect(forBounds: bounds)
 		var x = r.origin.x
 		var width = title.frame.size.width
-		if textAlignment == NSTextAlignment.Center {
+		if textAlignment == NSTextAlignment.center {
 			width = self.frame.size.width
-			title.textAlignment = NSTextAlignment.Center
-		} else if textAlignment == NSTextAlignment.Right {
+			title.textAlignment = NSTextAlignment.center
+		} else if textAlignment == NSTextAlignment.right {
 			x = r.origin.x + r.size.width - title.frame.size.width
 		}
 		title.frame = CGRect(x:x, y:title.frame.origin.y, width:width, height:title.frame.size.height)
 	}
 	
-	private func showTitle(animated:Bool) {
+	private func showTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: [.BeginFromCurrentState, .CurveEaseOut], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseOut], animations:{
 				// Animation
 				self.title.alpha = 1.0
 				var r = self.title.frame
@@ -190,9 +190,9 @@ import UIKit
 			}, completion:nil)
 	}
 	
-	private func hideTitle(animated:Bool) {
+	private func hideTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: [.BeginFromCurrentState, .CurveEaseIn], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseIn], animations:{
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

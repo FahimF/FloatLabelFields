@@ -17,7 +17,7 @@ import UIKit
 	private var initialTopInset:CGFloat = 0
 	
 	// MARK:- Properties
-	override var accessibilityLabel:String! {
+	override var accessibilityLabel:String? {
 		get {
 			if text.isEmpty {
 				return title.text!
@@ -78,7 +78,7 @@ import UIKit
 	}
 	
 	// MARK:- Init
-	required init(coder aDecoder:NSCoder) {
+	required init?(coder aDecoder:NSCoder) {
 		super.init(coder:aDecoder)
 		setup()
 	}
@@ -191,7 +191,7 @@ import UIKit
 	
 	private func showTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseOut, animations:{
+		UIView.animateWithDuration(dur, delay:0, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseOut], animations:{
 			// Animation
 			self.title.alpha = 1.0
 			var r = self.title.frame
@@ -202,7 +202,7 @@ import UIKit
 	
 	private func hideTitle(animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: UIViewAnimationOptions.BeginFromCurrentState|UIViewAnimationOptions.CurveEaseIn, animations:{
+		UIView.animateWithDuration(dur, delay:0, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseIn], animations:{
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

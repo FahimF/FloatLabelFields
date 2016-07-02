@@ -152,9 +152,9 @@ import UIKit
 		// Observers
 		if !isIB {
 			let nc = NSNotificationCenter.defaultCenter()
-			nc.addObserver(self, selector:"layoutSubviews", name:UITextViewTextDidChangeNotification, object:self)
-			nc.addObserver(self, selector:"layoutSubviews", name:UITextViewTextDidBeginEditingNotification, object:self)
-			nc.addObserver(self, selector:"layoutSubviews", name:UITextViewTextDidEndEditingNotification, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextViewTextDidChangeNotification, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextViewTextDidBeginEditingNotification, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextViewTextDidEndEditingNotification, object:self)
 		}
 	}
 

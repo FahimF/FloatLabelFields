@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable class FloatLabelTextView: UITextView {
 	let animationDuration = 0.3
-	let placeholderTextColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.65)
+	let placeholderTextColor = UIColor.lightGray().withAlphaComponent(0.65)
 	private var isIB = false
 	private var title = UILabel()
 	private var hintLabel = UILabel()
@@ -29,7 +29,7 @@ import UIKit
 		}
 	}
 	
-	var titleFont:UIFont = UIFont.systemFontOfSize(12.0) {
+	var titleFont:UIFont = UIFont.systemFont(ofSize: 12.0) {
 		didSet {
 			title.font = titleFont
 		}
@@ -61,7 +61,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleTextColour:UIColor = UIColor.grayColor() {
+	@IBInspectable var titleTextColour:UIColor = UIColor.gray() {
 		didSet {
 			if !isFirstResponder() {
 				title.textColor = titleTextColour
@@ -69,7 +69,7 @@ import UIKit
 		}
 	}
 	
-	@IBInspectable var titleActiveTextColour:UIColor = UIColor.cyanColor() {
+	@IBInspectable var titleActiveTextColour:UIColor = UIColor.cyan() {
 		didSet {
 			if isFirstResponder() {
 				title.textColor = titleActiveTextColour
@@ -90,10 +90,10 @@ import UIKit
 	
 	deinit {
 		if !isIB {
-			let nc = NSNotificationCenter.defaultCenter()
-			nc.removeObserver(self, name:UITextViewTextDidChangeNotification, object:self)
-			nc.removeObserver(self, name:UITextViewTextDidBeginEditingNotification, object:self)
-			nc.removeObserver(self, name:UITextViewTextDidEndEditingNotification, object:self)
+			let nc = NotificationCenter.default()
+			nc.removeObserver(self, name:NSNotification.Name.UITextViewTextDidChange, object:self)
+			nc.removeObserver(self, name:NSNotification.Name.UITextViewTextDidBeginEditing, object:self)
+			nc.removeObserver(self, name:NSNotification.Name.UITextViewTextDidEndEditing, object:self)
 		}
 	}
 	
@@ -135,10 +135,10 @@ import UIKit
 		hintLabel.font = font
 		hintLabel.text = hint
 		hintLabel.numberOfLines = 0
-		hintLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		hintLabel.backgroundColor = UIColor.clearColor()
+		hintLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+		hintLabel.backgroundColor = UIColor.clear()
 		hintLabel.textColor = placeholderTextColor
-		insertSubview(hintLabel, atIndex:0)
+		insertSubview(hintLabel, at:0)
 		// Set up title label
 		title.alpha = 0.0
 		title.font = titleFont
@@ -151,10 +151,10 @@ import UIKit
 		self.addSubview(title)
 		// Observers
 		if !isIB {
-			let nc = NSNotificationCenter.defaultCenter()
-			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextViewTextDidChangeNotification, object:self)
-			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextViewTextDidBeginEditingNotification, object:self)
-			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextViewTextDidEndEditingNotification, object:self)
+			let nc = NotificationCenter.default()
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidChange, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidBeginEditing, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidEndEditing, object:self)
 		}
 	}
 
@@ -168,16 +168,16 @@ import UIKit
 		var r = UIEdgeInsetsInsetRect(bounds, contentInset)
 		r.origin.x += textContainer.lineFragmentPadding
 		r.origin.y += textContainerInset.top
-		return CGRectIntegral(r)
+		return r.integral
 	}
 	
 	private func setTitlePositionForTextAlignment() {
 		var titleLabelX = textRect().origin.x
 		var placeholderX = titleLabelX
-		if textAlignment == NSTextAlignment.Center {
+		if textAlignment == NSTextAlignment.center {
 			titleLabelX = (frame.size.width - title.frame.size.width) * 0.5
 			placeholderX = (frame.size.width - hintLabel.frame.size.width) * 0.5
-		} else if textAlignment == NSTextAlignment.Right {
+		} else if textAlignment == NSTextAlignment.right {
 			titleLabelX = frame.size.width - title.frame.size.width
 			placeholderX = frame.size.width - hintLabel.frame.size.width
 		}
@@ -189,9 +189,9 @@ import UIKit
 		hintLabel.frame = r
 	}
 	
-	private func showTitle(animated:Bool) {
+	private func showTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseOut], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseOut], animations:{
 			// Animation
 			self.title.alpha = 1.0
 			var r = self.title.frame
@@ -200,9 +200,9 @@ import UIKit
 			}, completion:nil)
 	}
 	
-	private func hideTitle(animated:Bool) {
+	private func hideTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animateWithDuration(dur, delay:0, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseIn], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseIn], animations:{
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

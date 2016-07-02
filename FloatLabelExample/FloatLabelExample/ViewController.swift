@@ -9,11 +9,16 @@
 import UIKit
 
 class ViewController: UITableViewController {
+	@IBOutlet var vwName:FloatLabelTextField!
 	@IBOutlet var vwAddress:FloatLabelTextView!
 	@IBOutlet var vwHolder:UIView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		// Set font for placeholder of a FloatLabelTextField
+		if let fnt = UIFont(name:"Zapfino", size:12) {
+			vwName.titleFont = fnt
+		}
 		// Set font for placeholder of a FloatLabelTextView
 		if let fnt = UIFont(name:"Zapfino", size:12) {
 			vwAddress.titleFont = fnt

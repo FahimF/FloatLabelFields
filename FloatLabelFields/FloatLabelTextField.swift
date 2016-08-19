@@ -168,7 +168,7 @@ import UIKit
 		let r = textRectForBounds(bounds)
 		var x = r.origin.x
 		if textAlignment == NSTextAlignment.Center {
-			x = r.origin.x + (r.size.width * 0.5) - title.frame.size.width
+			x = r.origin.x + (r.size.width * 0.5) - (title.frame.size.width * 0.5)
 		} else if textAlignment == NSTextAlignment.Right {
 			x = r.origin.x + r.size.width - title.frame.size.width
 		}

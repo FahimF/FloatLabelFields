@@ -105,25 +105,16 @@ import UIKit
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
-		adjustTopTextInset()
-		hintLabel.alpha = text.isEmpty ? 1.0 : 0.0
-		let r = textRect()
-		hintLabel.frame = CGRect(x:r.origin.x, y:r.origin.y, width:hintLabel.frame.size.width, height:hintLabel.frame.size.height)
-		setTitlePositionForTextAlignment()
-		let isResp = isFirstResponder
-		if isResp && !text.isEmpty {
-			title.textColor = titleActiveTextColour
-		} else {
-			title.textColor = titleTextColour
-		}
-		// Should we show or hide the title label?
-		if text.isEmpty {
-			// Hide
-			hideTitle(isResp)
-		} else {
-			// Show
-			showTitle(isResp)
-		}
+        hintLabel.alpha = text.isEmpty ? 1.0 : 0.0
+        let r = textRect()
+        hintLabel.frame = CGRect(x:r.origin.x, y:r.origin.y, width:hintLabel.frame.size.width, height:hintLabel.frame.size.height)
+        setTitlePositionForTextAlignment()
+        let isResp = isFirstResponder
+        if isResp && !text.isEmpty {
+            title.textColor = titleActiveTextColour
+        } else {
+            title.textColor = titleTextColour
+        }
 	}
 	
 	// MARK:- Private Methods
@@ -152,17 +143,32 @@ import UIKit
 		// Observers
 		if !isIB {
 			let nc = NotificationCenter.default
-			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidChange, object:self)
+			nc.addObserver(self, selector:#selector(didChangeTextValue), name:NSNotification.Name.UITextViewTextDidChange, object:self)
 			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidBeginEditing, object:self)
 			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidEndEditing, object:self)
 		}
 	}
+    
+    @objc fileprivate func didChangeTextValue() {
+        let isResp = isFirstResponder
+        // Should we show or hide the title label?
+        if text.isEmpty {
+            // Hide
+            hideTitle(isResp)
+        } else {
+            // Show
+            if (self.title.alpha == 0) {
+                showTitle(isResp)
+            }
+        }
+    }
 
-	fileprivate func adjustTopTextInset() {
-		var inset = textContainerInset
-		inset.top = initialTopInset + title.font.lineHeight + hintYPadding
-		textContainerInset = inset
-	}
+    fileprivate func adjustTopTextInset(editing: Bool = false) {
+        var inset = textContainerInset
+        let lineHeight:CGFloat = editing ? title.font.lineHeight/2 : 0
+        inset.top = initialTopInset + lineHeight + hintYPadding
+        textContainerInset = inset
+    }
 	
 	fileprivate func textRect()->CGRect {
 		var r = UIEdgeInsetsInsetRect(bounds, contentInset)
@@ -193,6 +199,7 @@ import UIKit
 		let dur = animated ? animationDuration : 0
 		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseOut], animations:{
 			// Animation
+            self.adjustTopTextInset(editing: true)
 			self.title.alpha = 1.0
 			var r = self.title.frame
 			r.origin.y = self.titleYPadding + self.contentOffset.y
@@ -204,6 +211,7 @@ import UIKit
 		let dur = animated ? animationDuration : 0
 		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseIn], animations:{
 			// Animation
+            self.adjustTopTextInset(editing: false)
 			self.title.alpha = 0.0
 			var r = self.title.frame
 			r.origin.y = self.title.font.lineHeight + self.hintYPadding

@@ -115,7 +115,7 @@ import UIKit
 		if let txt = text , !txt.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
-			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
+			r = r.inset(by: UIEdgeInsets.init(top: top, left: 0.0, bottom: 0.0, right: 0.0))
 		}
 		return r.integral
 	}
@@ -125,7 +125,7 @@ import UIKit
 		if let txt = text , !txt.isEmpty {
 			var top = ceil(title.font.lineHeight + hintYPadding)
 			top = min(top, maxTopInset())
-			r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
+			r = r.inset(by: UIEdgeInsets.init(top: top, left: 0.0, bottom: 0.0, right: 0.0))
 		}
 		return r.integral
 	}
@@ -144,7 +144,7 @@ import UIKit
 	
 	// MARK:- Private Methods
 	fileprivate func setup() {
-		borderStyle = UITextBorderStyle.none
+		borderStyle = UITextField.BorderStyle.none
 		titleActiveTextColour = tintColor
 		// Set up title label
 		title.alpha = 0.0
@@ -177,7 +177,7 @@ import UIKit
 	
 	fileprivate func showTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseOut], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.curveEaseOut], animations:{
 				// Animation
 				self.title.alpha = 1.0
 				var r = self.title.frame
@@ -188,7 +188,7 @@ import UIKit
 	
 	fileprivate func hideTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseIn], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.curveEaseIn], animations:{
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

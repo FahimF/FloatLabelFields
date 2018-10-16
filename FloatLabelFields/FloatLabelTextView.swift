@@ -91,9 +91,9 @@ import UIKit
 	deinit {
 		if !isIB {
 			let nc = NotificationCenter.default
-			nc.removeObserver(self, name:NSNotification.Name.UITextViewTextDidChange, object:self)
-			nc.removeObserver(self, name:NSNotification.Name.UITextViewTextDidBeginEditing, object:self)
-			nc.removeObserver(self, name:NSNotification.Name.UITextViewTextDidEndEditing, object:self)
+			nc.removeObserver(self, name:UITextView.textDidChangeNotification, object:self)
+			nc.removeObserver(self, name:UITextView.textDidBeginEditingNotification, object:self)
+			nc.removeObserver(self, name:UITextView.textDidEndEditingNotification, object:self)
 		}
 	}
 	
@@ -152,9 +152,9 @@ import UIKit
 		// Observers
 		if !isIB {
 			let nc = NotificationCenter.default
-			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidChange, object:self)
-			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidBeginEditing, object:self)
-			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:NSNotification.Name.UITextViewTextDidEndEditing, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextView.textDidChangeNotification, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextView.textDidBeginEditingNotification, object:self)
+			nc.addObserver(self, selector:#selector(UIView.layoutSubviews), name:UITextView.textDidEndEditingNotification, object:self)
 		}
 	}
 
@@ -165,7 +165,7 @@ import UIKit
 	}
 	
 	fileprivate func textRect()->CGRect {
-		var r = UIEdgeInsetsInsetRect(bounds, contentInset)
+		var r = bounds.inset(by: contentInset)
 		r.origin.x += textContainer.lineFragmentPadding
 		r.origin.y += textContainerInset.top
 		return r.integral
@@ -191,7 +191,7 @@ import UIKit
 	
 	fileprivate func showTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseOut], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.curveEaseOut], animations:{
 			// Animation
 			self.title.alpha = 1.0
 			var r = self.title.frame
@@ -202,7 +202,7 @@ import UIKit
 	
 	fileprivate func hideTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-		UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseIn], animations:{
+		UIView.animate(withDuration: dur, delay:0, options: [UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.curveEaseIn], animations:{
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

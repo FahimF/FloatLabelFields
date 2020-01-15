@@ -177,7 +177,7 @@ import UIKit
 	
 	fileprivate func showTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-        UIView.animate(withDuration: dur, delay:0, options: [UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.curveEaseOut], animations:{
+        UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseOut], animations: {
 				// Animation
 				self.title.alpha = 1.0
 				var r = self.title.frame

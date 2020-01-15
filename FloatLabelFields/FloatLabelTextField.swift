@@ -188,7 +188,7 @@ import UIKit
 	
 	fileprivate func hideTitle(_ animated:Bool) {
 		let dur = animated ? animationDuration : 0
-        UIView.animate(withDuration: dur, delay:0, options: [UIView.AnimationOptions.beginFromCurrentState, UIView.AnimationOptions.curveEaseIn], animations:{
+        UIView.animate(withDuration: dur, delay:0, options: [.beginFromCurrentState, .curveEaseIn], animations: {
 			// Animation
 			self.title.alpha = 0.0
 			var r = self.title.frame

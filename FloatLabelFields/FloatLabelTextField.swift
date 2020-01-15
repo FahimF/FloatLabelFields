@@ -144,7 +144,7 @@ import UIKit
 	
 	// MARK:- Private Methods
 	fileprivate func setup() {
-        borderStyle = UITextField.BorderStyle.none
+        borderStyle = .none
 		titleActiveTextColour = tintColor
 		// Set up title label
 		title.alpha = 0.0
